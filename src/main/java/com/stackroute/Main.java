@@ -16,11 +16,13 @@ public class Main
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        Movie  movieFirst = context.getBean("movieA", Movie.class);
-        System.out.println(movieFirst.toString());
-        Movie movieSecond = context.getBean("movieB", Movie.class);
-        System.out.println(movieSecond.toString());
-        System.out.println(movieFirst == movieSecond);
+       System.out.println("In application context");
+        
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        BeanLifecycleDemoBean beanLifecycleDemoBean = context.getBean("lifecycleBean", BeanLifecycleDemoBean.class);
+        
+        System.out.println("Output using getter");
+        System.out.println(beanLifecycleDemoBean.getMessage());
+        context.close();
     }
 }
