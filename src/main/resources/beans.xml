@@ -7,14 +7,14 @@
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <bean id = "actor" class = "com.stackroute.domain.Actor">
-        <property name="name" value="Will Smith"></property>
-        <property name="gender" value="Male"></property>
-        <property name="age" value="41"></property>
+        <constructor-arg name="name" value="Will Smith"></constructor-arg>
+        <constructor-arg name="gender" value="Male"></constructor-arg>
+        <constructor-arg name="age" value="41"></constructor-arg>
 
     </bean>
 
-    <bean id = "movie" class ="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor"/>
+    <bean id = "movie" name = "movieA, movieB" class ="com.stackroute.domain.Movie">
+        <constructor-arg name="actor" ref="actor"/>
     </bean>
 
 </beans>
