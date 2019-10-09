@@ -6,30 +6,11 @@
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <bean id = "actor0" class = "com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="Will Smith"></constructor-arg >
-        <constructor-arg  name="gender" value="Male"></constructor-arg >
-        <constructor-arg  name="age" value="41"></constructor-arg >
-    </bean>
-       
-    <bean id = "actor1" class = "com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="Morgan Freeman"></constructor-arg >
-        <constructor-arg  name="gender" value="Male"></constructor-arg >
-        <constructor-arg  name="age" value="63"></constructor-arg >
-    </bean>
-       
-     <bean id = "actor2" class = "com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="Leonardo Dicaprio"></constructor-arg >
-        <constructor-arg  name="gender" value="Male"></constructor-arg >
-        <constructor-arg  name="age" value="53"></constructor-arg >
+    <bean id="beanLifecycleDemoBean" class="com.stackroute.demo.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy">
+        <property name="message" value="Demo message set" />
     </bean>
 
-    <bean name = "movieB" autowire = "byName" class ="com.stackroute.domain.Movie">
-    </bean>
-       
-     <bean name="movieB" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg ref = "actor1" />
-    </bean>  
+    <bean id="beanPostProcessor" class="com.stackroute.demo.BeanPostProcessorDemoBean"></bean>
        
 
 </beans>
