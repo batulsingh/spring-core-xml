@@ -16,13 +16,8 @@ public class Main
 {
     public static void main( String[] args )
     {
-       System.out.println("In application context");
+       System.out.println("In Application Context");
         
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        BeanLifecycleDemoBean beanLifecycleDemoBean = context.getBean("lifecycleBean", BeanLifecycleDemoBean.class);
-        
-        System.out.println("Output using getter");
-        System.out.println(beanLifecycleDemoBean.getMessage());
         context.close();
-    }
 }
